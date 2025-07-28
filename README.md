@@ -98,6 +98,7 @@ linkedIn : https://www.linkedin.com/in/arkit-mishra-892470278/
 
 Manya Sharma - Engineering @ JUIT 
 Contact: iammanya2k4@gmail.com
+linkedIn : https://www.linkedin.com/in/manya13/
 
 
 
