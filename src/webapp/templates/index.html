@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document Viewer – FEMORA</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>📄 Parsed PDF Viewer with Semantic Search</h1>
+
+    <form action="/search" method="get">
+        <input type="text" name="q" placeholder="Search content or headings..." value="{{ query if query else '' }}">
+        <button type="submit">🔍 Search</button>
+    </form>
+
+    <div class="results">
+    {% if results %}
+        {% for item in results %}
+            <div class="card">
+                <h2>{{ item.heading or "Untitled Section" }}</h2>
+                <p>{{ item.content or "No content available." }}</p>
+                {% if item.score is defined %}
+                    <p class="score">Semantic Score: {{ item.score }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

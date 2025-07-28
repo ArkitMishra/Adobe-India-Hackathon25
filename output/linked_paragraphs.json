@@ -1,0 +1,62 @@
+[
+    {
+        "page": 1,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p0', 'text': 'www.zidio.in Visit Our Website ASSIGNMENT hr@zidio.in'}",
+                "linked_heading": "FULL",
+                "similarity": 0.139
+            }
+        ]
+    },
+    {
+        "page": 2,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p1', 'text': 'Key'}",
+                "linked_heading": "1:",
+                "similarity": 0.131
+            },
+            {
+                "text": "{'id': 'p2', 'text': 'User & Admin Authentication (JWT based) Data Mapping: Allow users to choose X and Y axes dynamically Excel File Upload and Parsing (using xlsx or SheetJS) Graph Generation: Support for 2D/3D charts (e.g., bar, line, pie, scatter, 3D column Downloadable Charts (PNG/PDF) Dashboard with upload history AI Tools API Integration (optional for insights or summaries) Simple and modern responsive UI Frontend React.js Redux Toolkit Chart.js Three.js Tailwind CSS Backend Node.js Express.js MongoDB Multer (file upload) SheetJS/xlsx Optional OpenAI or similar API for AI summaries Tools Postman, Git/GitHub, Cloudinary (if needed for file storage)'}",
+                "linked_heading": "Analytics",
+                "similarity": 0.343
+            },
+            {
+                "text": "{'id': 'p3', 'text': \"A powerful platform for uploading any Excel file (.xls or .xlsx), analyzing the data, and generating interactive 2D and 3D charts. Users can select X and Y axes from the column headers of the Excel file, choose chart types, and generate downloadable graphs. Each user's history of uploads and analysis is saved and visible on their dashboard. Admin can manage users and data usage. The platform will optionally integrate AI APIs to provide smart insights or summary reports from the uploaded data Description: These two MERN (MongoDB, Express.js, React.js, Node.js) stack-based full-stack projects are designed for students to complete over a 10-week period. Each project is divided into 5-week modules with structured goals, guidance, and references for development. The purpose is to give hands-on experience with complete application development using the MERN stack. Tech Stack & Tools D e v e l o p m e n t T i m e l i n e Project setup, user/admin authentication, dashboard layout. File upload setup, Excel parsing logic, store structured data in MongoDB. Chart rendering with Chart.js & Three.js, allow user to select axes dynamically. Save analysis history, enable download feature, integrate AI API for summaries. Admin panel, testing & bug fixes, deployment (Render for backend, Netlify for frontend). References Sheet JS (https://sheetjs.com/) Chart.js (https://www.chartjs.org/) Three.js (https://threejs.org/) YouTube: JavaScript Mastery, Codevolution, Fireship Sample inspiration app: https://chart-studio.plotly.com/ week 1 week 2 week 3 week 4 week 5\"}",
+                "linked_heading": "Analytics",
+                "similarity": 0.4
+            }
+        ]
+    },
+    {
+        "page": 3,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p4', 'text': 'User profile with authored blogs Tech Stack & Tools React.js, Redux, Tailwind CSS, React Quill Frontend:'}",
+                "linked_heading": "Blogging",
+                "similarity": 0.195
+            },
+            {
+                "text": "{'id': 'p5', 'text': 'A blogging application where users can create, edit, delete and view blogs. Includes rich text editor, likes, comments, and profile management. Description: Key'}",
+                "linked_heading": "Blogging",
+                "similarity": 0.444
+            },
+            {
+                "text": "{'id': 'p6', 'text': 'Create/Edit/Delete blogs with rich text editor (Quill.js or similar) Comments & Likes system User Authentication (JWT based) Search and category filtering Admin dashboard to manage posts and users Node.js, Express.js, MongoDB Backend: GitHub, Cloudinary (for image upload), Postman Tools:'}",
+                "linked_heading": "Blogging",
+                "similarity": 0.371
+            }
+        ]
+    },
+    {
+        "page": 4,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p7', 'text': 'D e v e l o p m e n t T i m e l i n e Setup backend & frontend boilerplate, add authentication. Blog schema, post APIs, integrate rich text editor. UI for creating and listing blogs, add likes/comments. Profile management, search, filters, and category tags. Final testing, admin dashboard, deployment. week 6 week 7 week 8 week 9 week 10 YouTube: Clever Programmer (https://www.youtube.com/c/CleverProgrammer) Codevolution (https://www.youtube.com/c/Codevolution) Sample app: https://medium.com/'}",
+                "linked_heading": "References",
+                "similarity": 0.09
+            }
+        ]
+    }
+]

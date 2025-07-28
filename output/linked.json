@@ -1,0 +1,422 @@
+[
+    {
+        "page": 1,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p0', 'text': '\u2022 A computational problem specifies an input-output relationship \u2013 What does the input look like? \u2013 What should the output be for each input? \u2022 Example: \u2013 Input: an integer number N \u2013 Output: Is the number prime? \u2022 Example: \u2013 Input: A list of names of people \u2013 Output: The same list sorted alphabetically \u2022 Example: \u2013 Input: A picture in digital format \u2013 Output: An English description of what the picture shows'}",
+                "linked_heading": "Computational",
+                "similarity": 0.347
+            }
+        ]
+    },
+    {
+        "page": 2,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p1', 'text': '\u2022 An algorithm is an exact specification of how to solve a computational problem \u2022 An algorithm must specify every step completely, so a computer can implement it without any further \u201cunderstanding\u201d \u2022 An algorithm must work for all possible inputs of the problem. \u2022 Algorithms must be: \u2013 Correct: For each input produce an appropriate output \u2013 Efficient: run as quickly as possible, and use as little memory as possible \u2013 more about this later \u2022 There can be many different algorithms for each computational problem.'}",
+                "linked_heading": "Algorithms",
+                "similarity": 0.594
+            }
+        ]
+    },
+    {
+        "page": 3,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p2', 'text': '\u2022 Algorithms can be implemented in any programming language \u2022 Usually we use \u201cpseudo-code\u201d to describe algorithms Testing whether input N is prime: For j = 2 .. N-1 If j|N Output \u201cN is composite\u201d and halt Output \u201cN is prime\u201d'}",
+                "linked_heading": "Algorithms",
+                "similarity": 0.391
+            }
+        ]
+    },
+    {
+        "page": 4,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p3', 'text': '\u2022 The first algorithm \u201cinvented\u201d in history was Euclid\u2019s algorithm for finding the greatest common divisor (GCD) of two natural numbers \u2022 Definition: The GCD of two natural numbers x, y is the largest integer j that divides both (without remainder). I.e. j|x, j|y and j is the largest integer with this property. \u2022 The GCD Problem: \u2013 Input: natural numbers x, y \u2013 Output: GCD(x,y) \u2013 their GCD'}",
+                "linked_heading": "Divisor",
+                "similarity": 0.412
+            }
+        ]
+    },
+    {
+        "page": 5,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p4', 'text': 'public static int gcd(int x, int y) { while (y!=0) { int temp = x%y; x = y; y = temp; } return x; }'}",
+                "linked_heading": "GCD",
+                "similarity": 0.518
+            }
+        ]
+    },
+    {
+        "page": 6,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p5', 'text': 'Example: Computing GCD(48,120) temp x y After 0 rounds -- 72 120 After 1 round 72 120 72 After 2 rounds 48 72 48 After 3 rounds 24 48 24 After 4 rounds 0 24 0 Output: 24 while (y!=0) { int temp = x%y; x = y; y = temp; }'}",
+                "linked_heading": "GCD",
+                "similarity": 0.483
+            }
+        ]
+    },
+    {
+        "page": 7,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p6', 'text': '\u2022 Theorem: When Euclid\u2019s GCD algorithm terminates, it returns the mathematical GCD of x and y. \u2022 Notation: Let g be the GCD of the original values of x and y. \u2022 Loop Invariant Lemma: For all k \u22650, The values of x, y after k rounds of the loop satisfy GCD(x,y)=g. \u2022 Proof of lemma: ? \u2022 Proof of Theorem: The method returns when y=0. By the loop invariant lemma, at this point GCD(x,y)=g. But GCD(x,0)=x for every integer x (since x|0 and x|x). Thus g=x, which is the value returned by the code. \u2022 Still Missing: The algorithm always terminates.'}",
+                "linked_heading": "Algorithm",
+                "similarity": 0.426
+            }
+        ]
+    },
+    {
+        "page": 8,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p7', 'text': '\u2022 Loop Invariant Lemma: For all k \u22650, The values of x, y after k rounds of the loop satisfy GCD(x,y)=g. \u2022 Proof: By induction on k. \u2013 For k=0, x and y are the original values so clearly GCD(x,y)=g. \u2013 Induction step: Let x, y denote that values after k rounds and x\u2019, y\u2019 denote the values after k+1 rounds. We need to show that GCD(x,y)=GCD(x\u2019,y\u2019). According to the code: x\u2019=y and y\u2019=x%y, so the lemma follows from the following mathematical lemma. \u2022 Lemma: For all integers x, y: GCD(x, y) = GCD(x%y, y) \u2022 Proof: Let x=ay+b, where y>b\u22650. I.e. x%y=b. \u2013 (1) Since g|y, and g|x, we also have g|(x-ay), I.e. g|b. Thus GCD(b,y) \u2265 g = GCD(x,y). \u2013 (2) Let g\u2019=GCD(b,y), then g\u2019|(x-ay) and g\u2019|y, so we also have g\u2019|x. Thus GCD(x,y) \u2265g\u2019=GCD(b,y).'}",
+                "linked_heading": "Lemma",
+                "similarity": 0.361
+            }
+        ]
+    },
+    {
+        "page": 9,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p8', 'text': '\u2022 Why does this algorithm terminate? \u2013 After any iteration we have that x > y since the new value of y is the remainder of division by the new value of x. \u2013 In further iterations, we replace (x, y) with (y, x%y), and x%y < x, thus the numbers decrease in each iteration. \u2013 Formally, the value of xy decreases each iteration (except, maybe, the first one). When it reaches 0, the algorithm must terminate. public static int gcd(int x, int y) { while (y!=0) { int temp = x%y; x = y; y = temp; } return x; }'}",
+                "linked_heading": "Algorithm",
+                "similarity": 0.46
+            }
+        ]
+    },
+    {
+        "page": 10,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p9', 'text': '\u2022 The problem we want to address is to compute the square root of a real number. \u2022 When working with real numbers, we can not have complete precision. \u2013 The inputs will be given in finite precision \u2013 The outputs should only be computed approximately \u2022 The square root problem: \u2013 Input: a positive real number x, and a precision requirement \u03b5 \u2013 Output: a real number r such that |r-\u221ax|\u2264\u03b5'}",
+                "linked_heading": "Square",
+                "similarity": 0.369
+            }
+        ]
+    },
+    {
+        "page": 11,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p10', 'text': 'public static double sqrt(double x, double epsilon){ double low = 0; double high = x>1 ? x : 1; while (high-low > epsilon) { double mid = (high+low)/2; if (mid*mid > x) high = mid; else low = mid; } return low; }'}",
+                "linked_heading": "Square",
+                "similarity": 0.332
+            }
+        ]
+    },
+    {
+        "page": 12,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p11', 'text': 'Example: Computing sqrt(2) with precision 0.05: mid mid*mid low high After 0 rounds -- -- 0 2 After 1 round 1 1 1 2 After 2 rounds 1.5 2.25 1 1.5 After 3 rounds 1.25 1.56.. 1.25 1.5 After 4 rounds 1.37.. 1.89.. 1.37.. 1.5 After 5 rounds 1.43.. 2.06.. 1.37.. 1.43.. After 6 rounds 1.40.. 1.97.. 1.40.. 1.43.. Output: 1.40\u2026 while (high-low > epsilon) { double mid = (high+low)/2; if (mid*mid > x) high = mid; else low = mid; }'}",
+                "linked_heading": "Algorithm",
+                "similarity": 0.347
+            }
+        ]
+    },
+    {
+        "page": 13,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p12', 'text': '\u2022 Theorem: When the algorithm terminates it returns a value r that satisfies |r- \u221ax|\u2264\u03b5. \u2022 Loop invariant lemma: For all k \u22650, The values of low, high after k rounds of the loop satisfy: low \u2264\u221ax \u2264high. \u2022 Proof of Lemma: \u2013 For k=0, clearly low=0 \u2264\u221ax \u2264 high=max(x,1). \u2013 Induction step: The code only sets low=mid if mid \u2264\u221ax, and only sets high=mid if mid>\u221ax. \u2022 Proof of Theorem: The algorithm terminates when high-low\u2264\u03b5, and returns low. At this point, by the lemma: low \u2264\u221ax \u2264 high \u2264 low+\u03b5. Thus |low-\u221ax|\u2264\u03b5. \u2022 Missing Part: Does the algorithm always terminate? How Fast? We will deal with this later.'}",
+                "linked_heading": "Algorithm",
+                "similarity": 0.476
+            }
+        ]
+    },
+    {
+        "page": 14,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p13', 'text': '\u2022 The running time of your program will depend upon: \u2013 The algorithm \u2013 The input \u2013 Your implementation of the algorithm in a programming language \u2013 The compiler you use \u2013 The OS on your computer \u2013 Your computer hardware \u2013 Maybe other things: other programs on your computer; \u2026 \u2022 Our Motivation: analyze the running time of an algorithm as a function of only simple parameters of the input.'}",
+                "linked_heading": "program",
+                "similarity": 0.475
+            }
+        ]
+    },
+    {
+        "page": 15,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p14', 'text': '\u2022 Each algorithm performs a sequence of basic operations: \u2013 Arithmetic: (low + high)/2 \u2013 Comparison: if ( x > 0 ) \u2026 \u2013 Assignment: temp = x \u2013 Branching: while ( true ) { \u2026 } \u2013 \u2026 \u2022 Idea: count the number of basic operations performed on the input. \u2022 Difficulties: \u2013 Which operations are basic? \u2013 Not all operations take the same amount of time. \u2013 Operations take different times with different hardware or compilers'}",
+                "linked_heading": "operations",
+                "similarity": 0.529
+            }
+        ]
+    },
+    {
+        "page": 16,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p15', 'text': '\u2022 Operation counts are only problematic in terms of constant factors. \u2022 The general form of the function describing the running time is invariant over hardware, languages or compilers! \u2022 Running time is \u201cabout\u201d . \u2022 We use \u201cBig-O\u201d notation, and say that the running time is O( N2 ) public static int myMethod(int N){ int sq = 0; for(int j=0; j<N ; j++) for(int k=0; k<N ; k++) sq++; return sq; }'}",
+                "linked_heading": "Asymptotic",
+                "similarity": 0.259
+            }
+        ]
+    },
+    {
+        "page": 18,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p17', 'text': '\u2022 Definition: Let f and g be functions from the natural numbers to the natural numbers. We write f=O(g) if there exists a constant c such that for all n: f(n) \u2264 cg(n). f=O(g) \u21d4 \u2203c\u2200n: f(n) \u2264 cg(n) \u2022 This is a mathematically formal way of ignoring constant factors, and looking only at the \u201cshape\u201d of the function. \u2022 f=O(g) should be considered as saying that \u201cf is at most g, up to constant factors\u201d. \u2022 We usually will have f be the running time of an algorithm and g a nicely written function. E.g. The running time of the previous algorithm was O(N^2).'}",
+                "linked_heading": "Mathematical",
+                "similarity": 0.401
+            }
+        ]
+    },
+    {
+        "page": 19,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p18', 'text': '\u2022 We usually embark on an asymptotic worst case analysis of the running time of the algorithm. \u2022 Asymptotic: \u2013 Formal, exact, depends only on the algorithm \u2013 Ignores constants \u2013 Applicable mostly for large input sizes \u2022 Worst Case: \u2013 Bounds on running time must hold for all inputs. \u2013 Thus the analysis considers the worst-case input. \u2013 Sometimes the \u201caverage\u201d performance can be much better \u2013 Real-life inputs are rarely \u201caverage\u201d in any formal sense'}",
+                "linked_heading": "algorithms",
+                "similarity": 0.513
+            }
+        ]
+    },
+    {
+        "page": 20,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p19', 'text': '\u2022 How fast does Euclid\u2019s algorithm terminate? \u2013 After the first iteration we have that x > y. In each iteration, we replace (x, y) with (y, x%y). \u2013 In an iteration where x>1.5y then x%y < y < 2x/3. \u2013 In an iteration where x \u22641.5y then x%y \u2264y/2 < 2x/3. \u2013 Thus, the value of xy decreases by a factor of at least 2/3 each iteration (except, maybe, the first one). public static int gcd(int x, int y) { while (y!=0) { int temp = x%y; x = y; y = temp; } return x; }'}",
+                "linked_heading": "GCD",
+                "similarity": 0.529
+            }
+        ]
+    },
+    {
+        "page": 21,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p20', 'text': '\u2022 Theorem: Euclid\u2019s GCD algorithm runs it time O(N), where N is the input length (N=log 2 x + log 2 y). \u2022 Proof: \u2013 Every iteration of the loop (except maybe the first) the value of xy decreases by a factor of at least 2/3. Thus after k+1 iterations the value of xy is at most the original value. \u2013 Thus the algorithm must terminate when k satisfies: \u2013 (for the original values of x, y). \u2013 Thus the algorithm runs for at most iterations. \u2013 Each iteration has only a constant L number of operations, thus the total number of operations is at most \u2013 Formally, \u2013 Thus the running time is O(N). k'}",
+                "linked_heading": "Algorithm",
+                "similarity": 0.462
+            },
+            {
+                "text": "{'id': 'p21', 'text': 'k'}",
+                "linked_heading": "+",
+                "similarity": 0.162
+            },
+            {
+                "text": "{'id': 'p22', 'text': '2 / 3'}",
+                "linked_heading": "2",
+                "similarity": 0.201
+            },
+            {
+                "text": "{'id': 'p23', 'text': '2 / 3'}",
+                "linked_heading": "2",
+                "similarity": 0.199
+            },
+            {
+                "text": "{'id': 'p24', 'text': '2 2 2 / 3'}",
+                "linked_heading": "2",
+                "similarity": 0.233
+            }
+        ]
+    },
+    {
+        "page": 22,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p25', 'text': 'Algorithm: a method or a process followed to solve a problem. \u2013 A recipe. A problem is a mapping of input to output. An algorithm takes the input to a problem (function) and transforms it to the output. A problem can have many algorithms.'}",
+                "linked_heading": "Algorithms",
+                "similarity": 0.438
+            }
+        ]
+    },
+    {
+        "page": 23,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p26', 'text': 'An algorithm possesses the following properties: \u2013 It must be correct. \u2013 It must be composed of a series of concrete steps. \u2013 There can be no ambiguity as to which step will be performed next. \u2013 It must be composed of a finite number of steps. \u2013 It must terminate. A computer program is an instance, or concrete representation, for an algorithm in some programming language.'}",
+                "linked_heading": "Algorithm",
+                "similarity": 0.491
+            }
+        ]
+    },
+    {
+        "page": 24,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p27', 'text': '\u2022 To compare two sorting algorithms, should we talk about how fast the algorithms can sort 10 numbers, 100 numbers or 1000 numbers? \u2022 We need a way to talk about how fast the algorithm grows or scales with the input size. \u2013 Input size is usually called n \u2013 An algorithm can take 100n steps, or 2n2 steps, which one is better?'}",
+                "linked_heading": "algorithm?",
+                "similarity": 0.435
+            }
+        ]
+    },
+    {
+        "page": 25,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p28', 'text': '\u2022 We want to express the concept of \u201cabout\u201d, but in a mathematically rigorous way \u2022 Limits are useful in proofs and performance analyses \u2022 \u0398 notation: \u0398(n2) = \u201cthis function grows similarly to n2\u201d. \u2022 Big-O notation: O (n2) = \u201cthis function grows at least as slowly as n2\u201d. \u2013 Describes an upper bound.'}",
+                "linked_heading": "Asymptotic",
+                "similarity": 0.461
+            }
+        ]
+    },
+    {
+        "page": 26,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p29', 'text': '\u2022 What does it mean? \u2013 If f(n) = O(n2), then: \u2022 f(n) can be larger than n2 sometimes, but\u2026 \u2022 I can choose some constant c and some value n 0 such that for every value of n larger than n 0 : f(n) < cn2 \u2022 That is, for values larger than n 0 , f(n) is never more than a constant multiplier greater than n2 \u2022 Or, in other words, f(n) does not grow more than a constant factor faster than n2.'}",
+                "linked_heading": "Big-O",
+                "similarity": 0.337
+            },
+            {
+                "text": "{'id': 'p30', 'text': '0 0 all for 0 such that and constants positive exist there : n n n cg n f n c n g O n f \u2265 \u2264 \u2264 ='}",
+                "linked_heading": "Big-O",
+                "similarity": 0.127
+            }
+        ]
+    },
+    {
+        "page": 27,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p31', 'text': 'n 0 cg(n) f(n)'}",
+                "linked_heading": "O(g(n))",
+                "similarity": 0.266
+            }
+        ]
+    },
+    {
+        "page": 28,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p32', 'text': 'Big-O'}",
+                "linked_heading": ")",
+                "similarity": 0.047
+            },
+            {
+                "text": "{'id': 'p33', 'text': '2 1 . 2 2 3 2 2 2 2 2 2 2 2 20 7 5 000 , 150 000 , 000 , 1 2 n O n n O n n O n n n O n n O n \u2260 \u2260 + = + + = + ='}",
+                "linked_heading": ")",
+                "similarity": 0.144
+            }
+        ]
+    },
+    {
+        "page": 29,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p34', 'text': 'More Big-O \u2022 Prove that: \u2022 Let c = 21 and n 0 = 4 \u2022 21n2 > 20n2 + 2n + 5 for all n > 4 n2 > 2n + 5 for all n > 4 TRUE'}",
+                "linked_heading": ")",
+                "similarity": 0.141
+            },
+            {
+                "text": "{'id': 'p35', 'text': '2 2 5 2 20 n O n n = + +'}",
+                "linked_heading": ")",
+                "similarity": 0.095
+            }
+        ]
+    },
+    {
+        "page": 31,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p37', 'text': '\u2022 \u2126() \u2013 A lower bound \u2013 n2 = \u2126(n) \u2013 Let c = 1, n 0 = 2 \u2013 For all n \u2265 2, n2 > 1 \u00d7 n ( ) ( ) ( ) ( ) ( ) 0 0 all for 0 such that and constants positive exist there : n n n cg n f n c n g n f \u2265 \u2265 \u2264 \u2126 ='}",
+                "linked_heading": "Omega",
+                "similarity": 0.381
+            }
+        ]
+    },
+    {
+        "page": 32,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p38', 'text': 'n 0 cg(n) f(n)'}",
+                "linked_heading": "\u2126(g(n))",
+                "similarity": 0.369
+            }
+        ]
+    },
+    {
+        "page": 33,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p39', 'text': '\u2022 Big-O is not a tight upper bound. In other words n = O(n2) \u2022 \u0398 provides a tight bound \u2022 In other words, ( ) ( ) ( ) ( ) ( ) ( ) 0 2 1 0 2 1 all for 0 such that and , , constants positive exist there : n n n g c n f n g c n c c n g n f \u2265 \u2264 \u2264 \u2264 \u0398 = ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) ( ) n g n f n g O n f n g n f \u2126 = = \u21d2 \u0398 = AND'}",
+                "linked_heading": "\u0398-notation",
+                "similarity": 0.473
+            }
+        ]
+    },
+    {
+        "page": 34,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p40', 'text': 'n 0 c 2 g(n) f(n) c 1 g(n)'}",
+                "linked_heading": "\u0398(g(n))",
+                "similarity": 0.324
+            }
+        ]
+    },
+    {
+        "page": 36,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p42', 'text': '\u2022 Little o \u2013 A non-tight asymptotic upper bound \u2013 n = o(n2), n = O(n2) \u2013 3n2 \u2260 o(n2), 3n2 = O(n2) \u2022 \u2126() \u2013 A lower bound \u2013 Similar definition to Big-O \u2013 n2 = \u2126(n) \u2022 \u03c9() \u2013 A non-tight asymptotic lower bound \u2022 f(n) = \u0398(n) \u21d4 f(n) = O(n) and f(n) = \u2126(n)'}",
+                "linked_heading": "Asymptotic",
+                "similarity": 0.528
+            }
+        ]
+    },
+    {
+        "page": 37,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p43', 'text': 'n 0 O(f(n)) f(n) \u2126(f(n)) \u03c9(f(n)) o(f(n)) \u0398(f(n))'}",
+                "linked_heading": "Asymptotic",
+                "similarity": 0.358
+            }
+        ]
+    },
+    {
+        "page": 39,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p45', 'text': '\u2022 Prove that: \u2022 Let c = 21 and n 0 = 10 \u2022 21n3 > 20n3 + 7n + 1000 for all n > 10 n3 > 7n + 5 for all n > 10 TRUE, but we also need\u2026 \u2022 Let c = 20 and n 0 = 1 \u2022 20n3 < 20n3 + 7n + 1000 for all n \u2265 1 TRUE'}",
+                "linked_heading": "20",
+                "similarity": 0.314
+            },
+            {
+                "text": "{'id': 'p46', 'text': '3 3'}",
+                "linked_heading": "+",
+                "similarity": 0.166
+            }
+        ]
+    },
+    {
+        "page": 41,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p48', 'text': 'Example 1: a = b; This assignment takes constant time, so it is \u0398(1). Example 2: sum = 0; for (i=1; i<=n; i++) sum += n;'}",
+                "linked_heading": "Time",
+                "similarity": 0.115
+            }
+        ]
+    },
+    {
+        "page": 42,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p49', 'text': 'Space bounds can also be analyzed with asymptotic complexity analysis. Time: Algorithm Space: Data Structure'}",
+                "linked_heading": "Bounds",
+                "similarity": 0.257
+            }
+        ]
+    },
+    {
+        "page": 43,
+        "linked_paragraphs": [
+            {
+                "text": "{'id': 'p50', 'text': 'One can often reduce time if one is willing to sacrifice space, or vice versa. \u2013 Encoding or packing information Boolean flags \u2013 Table lookup Factorials Disk-based Space/Time Tradeoff Principle: The smaller you make the disk storage requirements, the faster your program will run.'}",
+                "linked_heading": "Space/Time",
+                "similarity": 0.229
+            }
+        ]
+    }
+]
