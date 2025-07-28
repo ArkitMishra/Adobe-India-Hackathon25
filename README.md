@@ -76,12 +76,12 @@ Adobe-India-Hackathon25/
 Each resume is processed and a structured JSON file is created under the `output/` directory. These contain extracted fields like:
 
 {
-  "name": "John Doe",
-  "email": "john.doe@example.com",
+  "name": "Arkit Mishra",
+  "email": "mishraarkit06@gmail.com",
   "phone": "+91-XXXXXXXXXX",
-  "skills": ["Python", "Machine Learning", "NLP"],
+  "skills": ["Python", "Machine Learning", "CPP", "Other"],
   "education": ["B.Tech CSE - JUIT"],
-  "experience": "2 years at XYZ Corp"
+  "experience": "Just because of the college life! 😊."
 }
 
 ## 📌 Notes
@@ -90,10 +90,16 @@ Each resume is processed and a structured JSON file is created under the `output
 - Ensure that the input PDFs are stored in the `input/` folder before running the script.
 - Tested on Python 3.10.
 
-## 👨‍💻 Author
+## 👨‍💻 Author & Team 
 
-Arkit – Engineering @ JUIT  
-Contact: [Your email or LinkedIn if applicable]
+Arkit Mishra – Engineering @ JUIT  
+Contact: mishraarkit06@gmail.com 
+linkedIn : https://www.linkedin.com/in/arkit-mishra-892470278/
+
+Manya Sharma - Engineering @ JUIT 
+Contact: iammanya2k4@gmail.com
+
+
 
 ---
 
