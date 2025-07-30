@@ -1,107 +1,131 @@
 
-# Adobe India Hackathon 2025 – Project 1 Submission
+# Adobe India Hackathon 2025 – Project 1 Submission: Intelligent Document Understanding
 
-This repository contains my implementation for **Project 1** of the [Adobe India Hackathon Challenge](https://d8it4huxumps7.cloudfront.net/files/6874ef2e50a4a_adobe_india_hackathon_challenge_doc.pdf). The solution extracts and analyzes information from multiple resume PDFs using various NLP and image processing techniques.
+This repository contains our implementation for **Project 1 – Connecting the Dots: Intelligent Document Understanding** of the [Adobe India Hackathon Challenge 2025](https://d8it4huxumps7.cloudfront.net/files/6874ef2e50a4a_adobe_india_hackathon_challenge_doc.pdf).
 
-## 🔍 Project Description
-
-The goal of this project is to automatically analyze a batch of resumes (PDFs) and extract key details like:
-
-- Name
-- Email
-- Phone Number
-- Education
-- Skills
-- Work Experience
-
-The output is stored in a structured JSON format for each resume, enabling easy downstream processing and decision-making.
-
-## 📁 Directory Structure
-
-Adobe-India-Hackathon25/
-├── Dockerfile
-├── README.md
-├── requirements.txt
-├── run.py                  # Main pipeline for PDF parsing and data extraction
-├── input/                  # Folder for input PDFs
-├── output/                 # Folder where output JSONs are saved
-├── src/
-│   ├── parser.py           # Custom extraction and NLP logic
-│   ├── utils.py            # Helper functions
-│   └── webapp/             # FastAPI webapp folder
-│       └── app.py          # Web server to serve parsed data
-
-## 🚀 Installation and Setup
-
-1. **Clone the Repository**
-   git clone <your-repo-url>
-   cd Adobe-India-Hackathon25
-
-2. **Install Required Python Libraries**
-   pip install pdfplumber pytesseract pillow opencv-python PyMuPDF sentence-transformers fastapi uvicorn
-
-3. **(Optional but Recommended) Use Virtual Environment**
-   python -m venv venv
-   venv\Scripts\activate
-   pip install -r requirements.txt
-
-4. **Run the Resume Parser**
-   python run.py
-
-   This will:
-   - Read all PDF files from the `input/` directory.
-   - Extract structured data (name, email, skills, etc.).
-   - Store the results as JSON files in the `output/` directory.
-
-5. **Start the Web Application**
-   cd src/webapp
-   uvicorn app:app --reload
-   (If the above doesn't work, use: python -m uvicorn app:app --reload)
-
-   This runs a FastAPI server where you can interact with the results via browser or API calls.
-
-## 🧠 Tech Stack
-
-- Python
-- pdfplumber
-- PyMuPDF
-- pytesseract (OCR)
-- OpenCV
-- Pillow
-- sentence-transformers (NLP)
-- FastAPI + Uvicorn (Web App)
-
-## 📦 Output
-
-Each resume is processed and a structured JSON file is created under the `output/` directory. These contain extracted fields like:
-
-{
-  "name": "Arkit Mishra",
-  "email": "mishraarkit06@gmail.com",
-  "phone": "+91-XXXXXXXXXX",
-  "skills": ["Python", "Machine Learning", "CPP", "Other"],
-  "education": ["B.Tech CSE - JUIT"],
-  "experience": "Just because of the college life! 😊."
-}
-
-## 📌 Notes
-
-- Make sure Tesseract OCR is installed on your system and properly configured (if OCR is required).
-- Ensure that the input PDFs are stored in the `input/` folder before running the script.
-- Tested on Python 3.10.
-
-## 👨‍💻 Author & Team 
-
-Arkit Mishra – Engineering @ JUIT  
-Contact: mishraarkit06@gmail.com 
-linkedIn : https://www.linkedin.com/in/arkit-mishra-892470278/
-
-Manya Sharma - Engineering @ JUIT 
-Contact: iammanya2k4@gmail.com
-linkedIn : https://www.linkedin.com/in/manya13/
-
-
+The solution extracts structured data from unstructured PDF documents (e.g., whitepapers, policies, manuals) and creates semantic linkages between their content using NLP, heading detection, embedding generation, and semantic search techniques.
 
 ---
 
-Feel free to fork and use for learning or enhancements!
+## 🔍 Problem Statement Overview
+
+- Parse long PDF documents into meaningful sections.
+- Identify headings and associate relevant paragraphs.
+- Generate semantic embeddings for each section.
+- Build a search engine to semantically retrieve relevant content across the document.
+
+---
+
+## 📁 Project Structure
+
+```
+Adobe-India-Hackathon25/
+├── input/                           # Folder for input PDF files
+├── output/                          # Folder for output JSON and semantic link files
+├── run.py                           # Main pipeline script that integrates all modules
+├── requirements.txt                 # Python dependencies
+├── README.md                        # Project documentation
+└── src/
+    ├── parser.py                    # Splits PDF into text segments
+    ├── heading_detector.py          # Detects headings using regex/ML logic
+    ├── linker.py                    # Builds basic parent-child hierarchy between headings and paragraphs
+    ├── semantic_linker/
+    │   └── semantic_link.py         # Embeds sections and builds semantic relationships
+    ├── api.py                       # FastAPI routes to serve the data
+    └── web/                         # Frontend folder (React/HTML)
+        ├── index.html
+        └── styles.css
+```
+
+---
+
+## ⚙️ How to Run
+
+### 1. Clone the Repository
+```bash
+git clone <your-repo-url>
+cd Adobe-India-Hackathon25
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the Pipeline
+```bash
+python run.py
+```
+- Parses all PDFs in `input/`
+- Outputs structured JSON and semantic links in `output/`
+
+### 4. Run the Web Interface
+```bash
+uvicorn src.api:app --reload
+```
+- Access via browser: `http://127.0.0.1:8000`
+- Supports semantic search and document navigation
+
+---
+
+## 🧠 Tech Stack
+
+- **Python 3.10+**
+- PyMuPDF (`fitz`) for PDF parsing
+- `re` & Rule-based Heading Detection
+- `sentence-transformers` for Semantic Embeddings
+- FastAPI for backend server
+- Basic HTML/CSS or React for frontend
+
+---
+
+## 📊 Output
+
+Each document is processed into:
+
+- A structured JSON with heading and paragraph mappings
+- A semantic link file mapping related sections based on content similarity
+
+Example output:
+
+```json
+{
+  "Document": "AI_Whitepaper.pdf",
+  "Sections": [
+    {
+      "Heading": "Introduction to AI",
+      "Paragraphs": ["Artificial Intelligence (AI) is ..."]
+    },
+    {
+      "Heading": "Applications",
+      "Paragraphs": ["AI is used in ..."]
+    }
+  ],
+  "Semantic_Links": [
+    ["Introduction to AI", "Applications"],
+    ["Applications", "Future Scope"]
+  ]
+}
+```
+
+---
+
+## 🧪 Sample Use Case
+
+Given a user query like _"What are the ethical issues in AI?"_, the system returns linked sections from across the document discussing privacy, bias, and governance.
+
+---
+
+## 👨‍💻 Team
+
+**Arkit Mishra** – Engineering @ JUIT  
+Email: mishraarkit06@gmail.com  
+LinkedIn: [arkit-mishra](https://www.linkedin.com/in/arkit-mishra-892470278/)
+
+**Manya Sharma** – Engineering @ JUIT  
+Email: iammanya2k4@gmail.com  
+LinkedIn: [manya13](https://www.linkedin.com/in/manya13/)
+
+---
+
+Feel free to fork, explore, and contribute 🚀
